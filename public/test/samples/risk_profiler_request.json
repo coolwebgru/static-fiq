@@ -1,0 +1,9 @@
+{
+  "dateOfBirth": "1992-10-12",
+  "retirementAge": 65,
+  "annualIncomeUSD":"0,25000",
+  "totalNetWorthUSD":"0,50000",
+  "companySizePreference": "LARGE or SMALL",
+  "reactionToCorrection": "ADVANCE or RETREAT",
+  "advisorPreference": "AUTOMATED or WITH_ADVISOR"
+}

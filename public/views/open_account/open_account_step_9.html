@@ -1,0 +1,188 @@
+<section id="main-slider" class="no-margin fadeInDown">
+    <div class="open-account-full-width-container block-1">
+        <div class="open-account-full-width-background" style="background: url(images/open_account_img.png) no-repeat center center; background-size: 100% 100%;">
+        </div>
+        <div class="open-account-full-width-containter-content">
+            <div class="open-account-background-mask">
+                <div class="open-account-center-cn-div">
+                    <div class="open-account-background-title center-inner-div">
+                      <div class="container">
+                        <h4>OPEN YOUR ACCOUNT</h4>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container margin-top-10">
+        <div id="status-buttons" class="text-center">
+            <a id="question_1_status" class="active" ng-click="changeWorkspace(9, 0)" href=""><span>1</span></a>
+            <a id="question_2_status" class="active" ng-click="changeWorkspace(9, 1)" href=""><span>2</span></a>
+            <a id="question_3_status" class="active" ng-click="changeWorkspace(9, 2)" href=""><span>3</span></a>
+            <a id="question_4_status" class="active" ng-click="changeWorkspace(9, 3)" href=""><span>4</span></a>
+            <a id="question_5_status" class="active" ng-click="changeWorkspace(9, 4)" href=""><span>5</span></a>
+            <a id="question_6_status" class="active" ng-click="changeWorkspace(9, 5)" href=""><span>6</span></a>
+            <a id="question_7_status" class="active" ng-click="changeWorkspace(9, 6)" href=""><span>7</span></a>
+            <a id="question_8_status" class="active" ng-show="customerType == 'JOINT'" ng-click="changeWorkspace(9, 7)" href=""><span>8</span></a>
+            <a id="question_9_status" class="active" ng-show="customerType == 'JOINT'" ng-click="changeWorkspace(9, 8)" href=""><span>9</span></a>
+            <a id="question_10_status" class="active" ng-show="customerType == 'JOINT'" href=""><span>10</span></a>
+            <a id="question_11_status" ng-show="customerType == 'JOINT'" ng-click="changeWorkspace(9, 10)" href=""><span>11</span></a>
+        </div>
+    </div>
+</section><!--/#main-slider-->
+
+<section id="copy-of-your-account" class="">
+    <div class="container">
+        <div class="row fade">
+            <form name="AccountStep_9" class="col-xs-12 col-md-6 col-md-6 z-index-100">
+                <div class="font-22px font-bold">
+                     We have made the account opening process a snap!
+                </div>
+                <div class="iq-stock-detail-font">
+                    Making it simple wasn't the only things we did! We also made it safe! IQ Vestment uses bank level encryption technology to safeguard your account, and your information.
+                </div>
+                <div class="contact-info-title font-18px font-bold">
+                    CHOOSE THE JOINT POSITION
+                </div>
+                <div class="label-input-container">
+                    <label ng-show="AccountStep_9.$error.required && AccountStep_9.$dirty" class="required-style">All fields are required unless otherwise noted.</label>
+                </div>
+                <div class="label-input-container">
+                    <div class="label-container">
+                        Community Property
+                    </div>
+                    <div class="input-container">
+                        <select ng-model="firstApplicant.jointCustomerDisposition" class="portfolio-select no-margin" ng-options="each.text for each in selectData['jointCustomerDisposition'] track by each.value" required>
+                            <option selected="selected"></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div ng-if="firstApplicant.jointCustomerDisposition.value == 'COMMUNITY_PROPERTY'">
+                    <div class="label-input-container">
+                        <div class="label-container">
+                            Community Property State
+                        </div>
+                        <div class="input-container">
+                            <select ng-model="firstApplicant.communityPropertyState" class="portfolio-select no-margin" ng-options="each.text for each in selectData['states'] track by each.value" name="selectCommunityPropertyStateName" required>
+                                <option selected="selected"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="firstApplicant.jointCustomerDisposition.value == 'TENANTS_IN_COMMON'">
+                    <div class="label-input-container">
+                        <div class="label-container">
+                            Tenants in Common
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6 col-md-6">
+                                <div class="label-input-container">
+                                    <div class="label-container">
+                                        Name
+                                    </div>
+                                    <div class="input-container">
+                                        <input ng-model="firstApplicant.tenantsName" class="portfolio-input" name="inputFirstUserTenantsName" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6 col-md-6">
+                                <div class="label-input-container">
+                                    <div class="label-container">
+                                        Estate Percent
+                                    </div>
+                                    <div class="input-container">
+                                        <input ng-change="changeFirstEstate()" type="number" onkeypress="return event.charCode >= 48" ng-model="firstApplicant.estate" class="portfolio-input" name="inputFirstUserEstate" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6 col-md-6">
+                                <div class="label-input-container">
+                                    <div class="label-container">
+                                        Name
+                                    </div>
+                                    <div class="input-container">
+                                        <input ng-model="secondApplicant.tenantsName" class="portfolio-input" name="inputSecondUserTenantsName" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-6 col-md-6">
+                                <div class="label-input-container">
+                                    <div class="label-container">
+                                        Estate Percent
+                                    </div>
+                                    <div class="input-container">
+                                        <input ng-change="changeSecondEstate()" type="number" onkeypress="return event.charCode >= 48" ng-model="secondApplicant.estate" class="portfolio-input" name="inputSecondUserEstate" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-container row">
+                    <div class="col-xs-12 col-md-6 col-md-6 margin-top-20">
+                        <a class="copy-of-your-account-link div-bottom" ng-click="changeWorkspace(9, 8)"><img src="images/back_new_img.png">&nbsp;Back</a>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-md-6 margin-top-20">
+                        <a ng-show="!AccountStep_9.$error.required" class="copy-of-your-account-link float-right-class" ng-click="changeWorkspace(9, 10)"><img src="images/next_new_img.png"> Next</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 margin-top-20">
+                        <a class="btn-finish-later float-right-class" ng-click="finishLater(9)">I will finish later</a>
+                    </div>
+                </div>
+            </form>
+
+            <div class="col-xs-12 col-md-5 col-md-5 float-right">
+                <div class="panel panel-container">
+                    <div class="panel-heading lock-panel-header row">
+                        <div class="col-xs-12 col-md-2 col-md-2 div-center lock-image-container">
+                            <img src="images/panel_lock_dark.png">
+                        </div>
+                        <div class="col-xs-12 col-md-10 col-md-10">
+                            <div class="panel-title pull-center">
+                                We safeguard your information and account with Bank Level Security
+                            </div>
+                        </div>    
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-body">
+                        We use the most state of the art security measures to protect your information and account.
+                        <div class="see-privacy-policy panel-text-underline">
+                            Learn More
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="#/contact">Questions?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section id="more-details" class="fadeInDown">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-7 col-md-8">
+                <div class="more-news-header">
+                    <h3>Want more details? Contact us</h3>
+                </div>
+                <div class="more-news-details">
+                    <div>We would love to assist you. Contact us by phone, email or via our social media channels.</div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-5 col-md-4 contact-us-div">
+                <div class="btn-contact-us-section">
+                    <a href="#/contact" class="open-account-btn-contact-us btn-contact-us-clicker">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ -->
+
+            

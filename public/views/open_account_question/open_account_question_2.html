@@ -1,0 +1,171 @@
+<section id="main-slider" class="no-margin fadeInDown">
+    <div class="open-account-full-width-container block-1">
+        <div class="open-account-full-width-background" style="background: url(images/open_account_img.png) no-repeat center center; background-size: 100% 100%;">
+        </div>
+        <div class="open-account-full-width-containter-content">
+            <div class="open-account-background-mask">
+                <div class="open-account-center-cn-div">
+                    <div class="open-account-background-title center-inner-div">
+                      <div class="container">
+                        <h4>TELL US ABOUT YOURSELF</h4>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container margin-top-10">
+        <div id="status-buttons" class="text-center">
+            <a id="question_1_status" class="active" title="Basic Information" href="#/open-account-question-1" ng-click="changeWorkspace(1, 0)"><span>1</span></a>
+            <a id="question_2_status" ng-class="{'active': !Question2.$error.required}" title="Investment Preferences" href="#/open-account-question-2"><span>2</span></a>
+        </div>
+    </div>
+</section><!--/#main-slider-->
+<section id="copy-of-your-account" class="fadeInDown" >
+    <div class="container">
+        <div class="row">
+            <form name="Question2" class="col-xs-12 col-sm-12 col-md-12">
+                <div class="get-started-1-title font-color-blue margin-left-10">
+                    Keep going...you're almost done!
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="open-account-question-5-question-title">
+                            Company Size Preference
+                        </div>
+                        <div class="open-account-question">
+                            Larger companies tend to be more stable and able to continue to perform well during times of stock market turbulence or changes to their business and market.  Smaller companies less so.  As such, larger companies are considered to be a less risky investment.  What is your preference regarding company size?
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="option-account-question-item margin-top-50">
+                            <select ng-model="accountCompanySize" class="open-account-question-select"  ng-options="each.text for each in selectData.companySizePreference track by each.value" required>
+                                <option selected="selected"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="open-account-question-5-question-title">
+                            Reaction to Market Conditions
+                        </div>
+                        <div class="open-account-question">
+                            Looking at a long term on the order of decades, the US stock market has consistently been a great place to invest.  For shorter time periods of years and even months, the market can fluctuate, experiencing times of great stability and prosperity as well as downturns and times of instability.  How would you tend to react during downturns and unstable times?
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="option-account-question-item margin-top-50">
+                            <select ng-model="accountReaction" class="open-account-question-select"  ng-options="each.text for each in selectData.reactionToCorrection track by each.value" required>
+                                <option selected="selected"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="open-account-question-5-question-title">
+                            Advisory Preference
+                        </div>
+                        <div class="open-account-question">
+                            Technology can drive investment decisions for you in a fully automated manner.  But you also have the option to work with an advisor in conjunction with the technology tools available.  What kind of advisement do you want?
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="option-account-question-item margin-top-50">
+                            <select ng-model="accountAdvisorPreference" class="open-account-question-select"  ng-options="each.text for each in selectData.advisorPreference track by each.value" required>
+                                <option selected="selected"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="accountAdvisorPreference.value == 'WITH_ADVISOR'" class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="open-account-question-5-question-title">
+                            Contact Method
+                        </div>
+                        <div class="open-account-question">
+                            An advisor will be happy to speak with you regarding your investment needs and options.
+                            How would you prefer to be contacted?
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 margin-top-50">
+                        <div class="advisor-details-title">
+                            Name
+                        </div>
+                        <div class="option-account-question-item">
+                            <input ng-model='advisor.name' class="get-started-1-input-age-content" type="text" required/>
+                        </div>
+                        <div class="advisor-details-title">
+                            Phone
+                        </div>
+                        <div class="option-account-question-item">
+                            <input ng-model="advisor.phone" class="get-started-1-input-age-content" type="text" required/>
+                        </div>
+                        <div class="advisor-details-title">
+                            Email
+                        </div>
+                        <div class="option-account-question-item">
+                            <input ng-model="advisor.email" class="get-started-1-input-age-content" type="email" required/>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div ng-if="accountAdvisorPreference.value == 'WITH_ADVISOR'" class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="open-account-question-5-question-title">
+                            Phone
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="option-account-question-item margin-top-50">
+                            <input ng-model="advisor.phone" class="get-started-1-input-age-content" type="text" required/>
+                        </div>
+                    </div>
+
+                </div>
+                <div ng-if="accountAdvisorPreference.value == 'WITH_ADVISOR'" class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="open-account-question-5-question-title">
+                            Email
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        
+                    </div>
+                </div> -->
+            </form>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-12 col-sm-8 col-md-8">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 text-right copy-of-your-account-link-container">
+                    <a class="copy-of-your-account-link" ng-click="changeWorkspace(1, 0)" href="#/open-account-question-1"><img src="images/back_new_img.png">&nbsp;Back</a>
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 copy-of-your-account-link-container">
+                    <a ng-show="!Question2.$error.required" class="copy-of-your-account-link" ng-click="submitQuestions()"><img src="images/next_new_img.png">&nbsp;Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section id="more-details" class="fadeInDown">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-7 col-md-8">
+                <div class="more-news-header">
+                    <h3>Need more details? Contact us</h3>
+                </div>
+                <div class="more-news-details">
+                    <div>We would love to assist you. Contact us by phone, email or via our social media channels.</div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-5 col-md-4 contact-us-div">
+                <div class="btn-contact-us-section">
+                    <a href="#/contact" class="open-account-btn-contact-us btn-contact-us-clicker">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+

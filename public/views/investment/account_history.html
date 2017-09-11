@@ -1,0 +1,158 @@
+<section id="main-slider" class="no-margin fadeInDown">
+    <div class="open-account-full-width-container block-1">
+        <div class="open-account-full-width-background" style="background: url(images/open_account_img.png) no-repeat center center; background-size: 100% 100%;">
+        </div>
+        <div class="open-account-full-width-containter-content">
+            <div class="open-account-background-mask">
+                <div class="open-account-center-cn-div">
+                    <div class="open-account-background-title center-inner-div">
+                      <div class="container">
+                        <h4>MY INVESTMENTS</h4>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/#main-slider-->
+
+<section id="copy-of-your-account">
+    <div class="container cart-container">
+        <div class="row">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="account-page-title">
+                        Account History
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-20">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="navbar-collapse padding-0">
+                        <ul class="nav navbar-nav">
+                            <li id="account-table-nav-1" ng-click="activeAccountTableNav(0)" class="padding-bottom-0 border-right-class "><a href="#/account-overview">Overview</a></li>
+                            <li id="account-table-nav-2" ng-click="activeAccountTableNav(1)" class="padding-bottom-0 border-right-class account-active-tab"><a href="#/account-overview/history" >History</a></li>
+                            <li id="account-table-nav-4" ng-click="activeAccountTableNav(3)" class="padding-bottom-0 border-right-class"><a href="#/account-overview/holdings">Holdings</a></li>
+                            <li id="account-table-nav-5" ng-click="activeAccountTableNav(4)" class="padding-bottom-0 border-right-class"><a  href="#/account-overview/add-money">Add Money</a></li>
+                            <li id="account-table-nav-6" ng-click="activeAccountTableNav(5)" class="padding-bottom-0 border-right-class"><a href="#/account-overview/withdraw-money">Withdraw Money</a></li>
+                            <li id="account-table-nav-3" ng-click="activeAccountTableNav(2)" class="padding-bottom-0 border-right-class"><a href="#/account-overview/all-transfers">All Transfers</a></li>
+                            <li id="account-table-nav-7" ng-click="activeAccountTableNav(6)" class="padding-bottom-0"><a href="#/account-overview/documents">Documents</a></li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="account-table-spliter">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin-top-20">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Period to See
+                                <div class="caret"></div></button>
+                                <ul class="dropdown-menu">
+                                    <li><a ng-click="showAllHistory()">All</a></li>
+                                    <li><a ng-click="compareByWeek()">This Week</a></li>
+                                    <li><a ng-click="compareByMonth()">This Month</a></li>
+                                    <li><a ng-click="compareByQuarter()">This Quarter</a></li>
+                                    <li><a ng-click="showLastThirty()">Last 30 Days</a></li>
+                                    <li><a ng-click="showLastSixty()">Last 60 Days</a></li>
+                                    <li><a ng-click="showLastNinety()">Last 90 Days</a></li>
+                                </ul>
+                            </div>
+                        </div>
+<!--                         <div class="col-xs-12 col-sm-4 col-md-4">
+                            <a ng-click="compareByWeek()" class="btn-account-funding-date btn-account-funding-date-clicker">This Week</a>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <a ng-click="compareByMonth()" class="btn-account-funding-date btn-account-funding-date-clicker">This Month</a>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <a ng-click="compareByQuarter()" class="btn-account-funding-date btn-account-funding-date-clicker">This Quarter</a>
+                        </div> -->
+                    </div>
+                    <div class="row margin-top-20">
+
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="account-product-name font-20px padding-left-10">
+                                Transactions
+                            </div>
+
+                            <table ng-table="historyTransactionsParams" class="table">
+                                <tr ng-repeat="transaction in $data">
+                                    <td title="'Transaction Description'" filter="{ transactionDescription: 'text'}" sortable="'transactionDescription'">{{transaction.transactionDescription}}</td>
+                                    <td title="'Symbol'">{{transaction.symbol}}</td>
+                                    <td title="'Description'">{{transaction.symbolDescription}}</td>
+                                    <td title="'Amount'" class="text-right" header-class="'text-right'">{{transaction.amount | currency: ''}}</td>
+                                    <td title="'Date'" class="text-center" header-class="'text-center'">{{transaction.ledgerDate | date: "yyyy-MM-dd" }}</td>
+
+                                </tr>
+                            </table>
+
+<!--                             <table class="table font-16px">
+                                <thead>
+                                    <th>Transaction Descriptions</th>
+                                    <th>Symbol Description</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="transaction in historyTransactions">
+                                        <td>{{ transaction.transactionDescription }}</td>
+                                        <td>{{ transaction.symbolDescription }}</td>
+                                        <td>{{ transaction.amount }}</td>
+                                        <td>{{ transaction.ledgerDate | date: "yyyy-MM-dd" }}</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table> -->
+                            <div class="account-product-name font-20px padding-left-10 margin-top-70">
+                                Trades
+                            </div>
+
+                            <table ng-table="historyTradeParams" class="table">
+                                <tr ng-repeat="trade in $data">
+                                    <td title="'Symbol'" sortable="'symbol'" class="text-center" header-class="'text-center'">{{trade.symbol}}</td>
+                                    <td title="'Description'" filter="{ symbolDescription: 'text'}" sortable="'symbolDescription'">{{trade.symbolDescription}}</td>
+                                    <td title="'Quantity'" class="text-right" header-class="'text-right'">{{trade.quantity | currency: ''}}</td>
+                                    <td title="'Price'" class="text-right" header-class="'text-right'">{{trade.price | currency: ''}}</td>
+                                    <td title="'Net Amount'" class="text-right" header-class="'text-right'">{{trade.netAmount | currency: ''}}</td>
+                                    <td title="'Principal Amount'" class="text-right" header-class="'text-right'">{{trade.principalAmount | currency: ''}}</td>
+                                    <td title="'Buy or Sell'" class="text-center" header-class="'text-center'">{{trade.buyOrSell}}</td>
+                                    <td title="'Date'" class="text-center" header-class="'text-center'">{{trade.tradeDate | date: "yyyy-MM-dd" }}</td>
+
+                                </tr>
+                            </table>
+
+                            <!-- <table class="table font-16px">
+                                <thead>
+                                    <th>Symbol Description</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Net Amount</th>
+                                    <th>Principal Amount</th>
+                                    <th>Buy or Sell</th>
+                                    <th>Date</th>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="trade in historyTrades">
+                                        <td>{{ trade.symbolDescription }}</td>
+                                        <td>{{ trade.quantity }}</td>
+                                        <td>${{ trade.price }}</td>
+                                        <td>{{ trade.netAmount }}</td>
+                                        <td>{{ trade.principalAmount }}</td>
+                                        <td>{{ trade.buyOrSell }}</td>
+                                        <td>{{ trade.tradeDate | date: "yyyy-MM-dd" }}</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

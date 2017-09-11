@@ -1,0 +1,27 @@
+{
+  "status":{
+    "statusCode":"OK",
+    "statusDescription":null,
+    "statusDetails":null
+  },
+  "response":{
+    "riskScore":25,
+    "riskLevel":2,
+    "riskLevelDescription":"Moderate",
+    "productAssignments":[
+      {
+        "productName":"IQ-TRACK-MID-CAP-VALUE",
+        "percentWeight":100.0
+      }
+    ],
+    "questionAnswers":{
+      "dateOfBirth": "1992-10-12",
+      "retirementAge": 65,
+      "annualIncomeUSD":"0,25000",
+      "totalNetWorthUSD":"0,50000",
+      "companySizePreference":"LARGE",
+      "reactionToCorrection":"ADVANCE",
+      "advisorPreference":"AUTOMATED"
+    }
+  }
+}

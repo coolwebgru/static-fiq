@@ -1,0 +1,96 @@
+<section id="main-slider" class="no-margin fadeInDown">
+    <div class="company-news-header block-1 ">
+        <div class="full-width-background-div height-367" style="background: url(images/news_update_main.png) no-repeat center center; background-size: 100% 100%;">
+        </div>
+        <div class="full-width-containter-content">
+            <div class="open-account-background-mask">
+                <div class="open-account-center-cn-div">
+                    <div class="iq-stock-background-title center-inner-div">
+                      <div class="container">
+                        <h4>VIDEOS</h4>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/#main-slider-->
+
+<section>
+    <div class="container padding-bottom-50px grey-bottom-border-1px">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="margin-top-20 font-34px benefit-title-font-color">
+                    <b>IQ Vestment Video Gallery</b>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8">
+                <div class="margin-top-50">
+                    <vimeo-video video-id="videoId"></vimeo-video>
+                </div>
+                <div class="margin-top-20 font-15px font-color-black">
+                    <b>More Videos</b>
+                    <div>
+                        <slick arrows=true slides-to-show=4 slides-to-scroll=1>
+                            <div ng-repeat="slide in slides" ng-click="onSelectVideo(slide.id)">
+                                <img src="{{slide.image}}">
+                                <div class="text-left font-14px benefit-title-font-color">
+                                    {{ slide.content }}
+                                </div>
+                            </div>
+                        </slick>
+                    </div>
+
+                </div>
+                
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="padding-left-20 margin-top-50 ">
+                    <div class="font-color-black font-24px">
+                        <b>Kevin Lane discusses US Equity Markets</b>
+                    </div>
+                    <div class="font-color-black margin-top-20 font-17px">
+                        IQ Vestment Chief Investment Officer, Kevin Lane  goes through the data-driven tea leaves for the US Equity Markets
+                    </div>
+                    <div class="margin-top-30">
+                        <a href="http://www.twitter.com" class="cursor-pointer" ><img src="images/video_twitter.png"/></a>
+                        <a href="https://www.tumblr.com" class="margin-left-5 cursor-pointer"><img src="images/video_tumblr.png"/></a>
+                        <a href="http://www.linkedin.com" class="margin-left-5 cursor-pointer"><img src="images/video_linkedin.png"/></a>
+                        <a href="http://www.facebook.com" class="margin-left-5 cursor-pointer"><img src="images/video_facebook.png"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row margin-top-20">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="margin-top-50 font-color-black font-24px margin-left-50">
+                    <b>Want more insights?</b>
+                </div>
+                <div class="margin-top-20 font-color-black font-24px margin-left-50">
+                    <b>&nbsp;&nbsp;&nbsp;Visit our education center</b>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="faq-detail-container text-center  float-right-class">
+                    <div>
+                        <a><img class="border-circle" src="images/faq_education_center.png"></a>
+                    </div>
+                    <div class="font-17px font-color-black font-bold">
+                        Education Center
+                    </div>
+                    <div class="font-15px font-color-black margin-top-5">
+                        Open to all visitors
+                    </div>
+                    <div class="margin-top-20 margin-bottom-20">
+                        <a href="#/faqs-education-center" class="btn-explore">Explore</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,111 @@
+<section id="main-slider" class="no-margin fadeInDown">
+    <div class="open-account-full-width-container block-1">
+        <div class="open-account-full-width-background" style="background: url(images/open_account_img.png) no-repeat center center; background-size: 100% 100%;">
+        </div>
+        <div class="open-account-full-width-containter-content">
+            <div class="open-account-background-mask">
+                <div class="open-account-center-cn-div">
+                    <div class="open-account-background-title center-inner-div">
+                      <div class="container">
+                        <h4>MY INVESTMENTS</h4>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="copy-of-your-account" class="">
+    <div class="container">
+        <div class="row fade">
+            
+
+            <form name="WithdrawMoneyForm" class="col-xs-12 col-md-6 col-md-6 z-index-100 fade">
+                <div class="iq-stock-detail-font">
+                    Please Insert the amount to deposit.
+                </div>
+                <div class="label-input-container">
+                    <label ng-show="withdrawAmount > snapshots.availableCash" class="required-style">Amount of Withdrawal can not bigger thatn Cash Available.</label>
+                </div>
+                <div class="row margin-top-20">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="label-container">
+                            Nick Name:
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="label-container">
+                            {{ currentNickName }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="label-container">
+                            Current Cash Balance:
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="label-container">
+                            {{ snapshots.totalCash | currency }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="label-container">
+                            Total Cash Available for Withdrawal:
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="label-container">
+                            {{ snapshots.availableCash | currency }}
+                        </div>
+                    </div>
+                </div>
+                <div class="label-input-container font-18px">
+                    <input ng-change="onClick_isFullBalance()" type="checkbox" ng-model="isFullBalance"> Full Balance
+                </div>
+                <div class="label-input-container">
+                    <div class="label-container">
+                        Amount of Withdrawal
+                    </div>
+                    <div class="input-container">
+                       <input type="text" ng-model="withdrawAmount" class="portfolio-input" ng-disabled="withdrawInputFlag">
+                    </div>
+                </div>
+                
+                <div class="button-container row">
+                    <div class="col-xs-12 col-md-6 col-md-6 margin-top-20">
+                        <a class="btn-ach-deposit text-center" ng-click="withdrawAchRelationship()">Withdrawal Money</a>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-md-6 margin-top-20">
+                        <a class="btn-ach-confirm float-right-class" href="#/account-overview/withdraw-money">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- <section id="more-details" class="fadeInDown">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-7 col-md-8">
+                <div class="more-news-header">
+                    <h3>Need more details? Contact us</h3>
+                </div>
+                <div class="more-news-details">
+                    <div>We would love to assist you. Contact us by phone, email or via our social media channels.</div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-5 col-md-4 contact-us-div">
+                <div class="btn-contact-us-section">
+                    <a href="#/contact" class="open-account-btn-contact-us btn-contact-us-clicker">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ -->

@@ -1,0 +1,365 @@
+<section id="main-slider" class="no-margin fadeInDown">
+    <div class="open-account-full-width-container block-1">
+        <div class="open-account-full-width-background" style="background: url(images/open_account_img.png) no-repeat center center; background-size: 100% 100%;">
+        </div>
+        <div class="open-account-full-width-containter-content">
+            <div class="open-account-background-mask">
+                <div class="open-account-center-cn-div">
+                    <div class="open-account-background-title center-inner-div">
+                      <div class="container">
+                        <h4>YOUR PERSONALIZED STOCK CART</h4>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/#main-slider-->
+
+<section id="copy-of-your-account">
+    <div ng-show="(selectedProducts.length < 2) || !selectedProducts" class="container cart-container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="get-started-1-title font-color-blue div-center">
+                    <b>Congratulations</b>
+                </div>
+                <div class="open-account-font">
+                    Based on your risk profile FusionIQ has selected the <b>{{productName}}</b> Cart for your investing needs.
+                </div>
+                <div class=" float-right">
+                    <a href="#/open-account-1"><button type="button" class="btn-purchase-cart btn-purchase-cart-clicker">Click to Purchase This Cart</button></a>
+                    <div ng-if="investmentExperienced == 'GOOD' || investmentExperienced == 'EXTENSIVE'">
+                        <div class="text-center font-17px font-color-black">or</div>
+                        <div class="font-17px font-color-black width-252"><a href="#/investment-choices" class="font-17px font-color-blue "><u>Click here</u></a> to see other carts that may interest you.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="font-27px">
+                {{productName}}
+            </div>
+            <div class="iq-stock-detail-font">
+                {{productDetails}}
+            </div>
+
+
+            <div class="row margin-top-20" style="z-index: 100;">
+                <div class="col-xs-12 col-sm-12 col-md-8">
+                    <table class="table">
+                        <thead class="table table-striped">
+                            <tr class="cart-table-header">
+                                <th class="cart-header-detail">Symbol</th>
+                                <th class="cart-header-detail">Description</th>
+                                <th class="cart-header-detail">Group</th>
+                                <th class="cart-header-detail min-width-112">Master Score<img title="The four-dimensional, FusionIQ stock score. 1 is the worst score – 100 best score." class="float-right-class" src="images/header_question_mark.png"></th>
+                                <th class="cart-header-detail min-width-112">Safety Score<img title="The stock safety score.  Scored high, moderate and low safety. A measure of volatility, beta and a company’s balance sheet safety." class="float-right-class" src="images/header_question_mark.png"></th>
+                                <th class="cart-header-detail">%Weight</th>
+                                <!-- <th class="cart-header-detail">Flag</th> -->
+                            </tr>
+                        </thead>
+                        <tbody class="cart-table-body">
+                            <tr ng-repeat="holding in jsonTable.holdings">
+                                <td ng-class="{'cart-unselected-body': holding.selectedFlag == false, 'cart-selected-body': holding.selectedFlag === true}">{{holding.symbol}}</td>
+                                <td ng-class="{'cart-unselected-body': holding.selectedFlag == false, 'cart-selected-body': holding.selectedFlag === true}">{{holding.description}}</td>
+                                <td ng-class="{'cart-unselected-body': holding.selectedFlag == false, 'cart-selected-body': holding.selectedFlag === true}">{{holding.group}}</td>
+                                <td ng-class="{'cart-unselected-body': holding.selectedFlag == false, 'cart-selected-body': holding.selectedFlag === true}" class="text-center">{{holding.customStats.masterScore}}</td>
+                                <td ng-class="{'cart-unselected-body': holding.selectedFlag == false, 'cart-selected-body': holding.selectedFlag === true}" class="text-center">{{holding.customStats.safetyScore}}</td>
+                                <td ng-class="{'cart-unselected-body': holding.selectedFlag == false, 'cart-selected-body': holding.selectedFlag === true}">{{holding.percentWeight * 100 | number:1}}%</td>
+                                <!-- <td class="cart-body-detail">{{holding.selectedFlag}}</td> -->
+
+                            </tr>
+                            <!-- <tr>
+                                <td colspan="6" class="cart-body-detail text-center">{{ jsonTable.holdings.length }} row(s) are in this table</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4">
+                    <table class="table">
+                        <thead class="table table-striped">
+                            <tr class="cart-table-header">
+                                <th class="cart-header-detail text-left">Stat</th>
+                                <th class="cart-header-detail text-center">Value</th>
+                            </tr>
+                        </thead>
+                      <tbody class="cart-table-body">
+                            <tr>
+                                <td class="cart-body-detail text-left">Holdings<img title="The number of equities held in your portfolio." class="float-right-class" src="images/question_mark.png"></td>
+                                <td class="cart-body-detail text-center">{{ jsonProduct.commonStats.totalHoldings }}</td>
+                            </tr>
+                            <tr>
+                                <td class="cart-body-detail text-left">Composite Master Score<img title="The four-dimensional, FusionIQ portfolio score. 1 is the worst score – 100 best score." class="float-right-class" src="images/question_mark.png"></td>
+                                <td class="cart-body-detail text-center">{{ jsonProduct.customStats.compositeMasterScore }}</td>
+                            </tr>
+                            <tr>
+                                <td class="cart-body-detail text-left">Composite Safety Score<img title="The portfolio safety score.  Scored high, moderate and low safety. A measure of volatility, beta and a company’s balance sheet safety." class="float-right-class" src="images/question_mark.png"></td>
+                                <td class="cart-body-detail text-center">{{ jsonProduct.customStats.compositeSafetyScore }}</td>
+                            </tr>
+                            <tr>
+                                <td class="cart-body-detail text-left">Market Cap<img title="The market value of all shares outstanding in a company." class="float-right-class" src="images/question_mark.png"></td>
+                                <td class="cart-body-detail text-center">USD ${{ jsonProduct.commonStats.aggregateMarketCap / 1000000000| number: 1}}B</td>
+                            </tr>
+                            <tr>
+                                <td class="cart-body-detail text-left">Beta<img title="is a measure of the volatility, or systematic risk, of a security or a portfolio in comparison to the market as a whole." class="float-right-class" src="images/question_mark.png"></td>
+                                <td class="cart-body-detail text-center">{{ jsonProduct.commonStats.aggregateBeta }}</td>
+                            </tr>
+                            <tr>
+                                <td class="cart-body-detail text-left">Dividend Yield<img title="A measure of how much the portfolio pays out in dividends each year, represented as a percentage." class="float-right-class" src="images/question_mark.png"></td>
+                                <td class="cart-body-detail text-center">{{ jsonProduct.commonStats.aggregateDividend | number: 2 }}%</td>
+                            </tr>
+                            <tr>
+                                <td class="cart-body-detail text-left">30-Day Return<img title="The portfolios return over the trailing 30 days." class="float-right-class" src="images/question_mark.png"></td>
+                                <td class="cart-body-detail text-center">1.69%</td>
+                            </tr>
+                            <tr>
+                                <td class="cart-body-detail text-left">Price-to-Earnings(PE)<img title="The aggregate Price to Earnings (PE) ratio for the portfolio.  The PE ratio is a method of valuing the portfolio by valuing the companies held in the portfolio by their current share price relative to their per share earnings. Low PE ratios are considered undervalued, whereas high PE ratios are considered overvalued." class="float-right-class" src="images/question_mark.png"></td>
+                                <td class="cart-body-detail text-center">{{ jsonProduct.commonStats.aggregatePeRatio | number: 2 }}</td>
+                            </tr>
+                            <tr>
+                                <td class="cart-body-detail text-left">Price-to-Book(PB)<img title="The aggregate Price to Book (PB) ratio for the portfolio. The PB ratio is a method for valuing the portfolio by valuing the companies held in the portfolio by comparing its market value to its book value. Low PB ratios are considered undervalued, whereas high PB ratios are considered overvalued." class="float-right-class" src="images/question_mark.png"></td>
+                                <td class="cart-body-detail text-center">{{ jsonProduct.commonStats.aggregatePbRatio | number: 2 }}</td>
+                            </tr>
+                            <tr>
+                                <td class="cart-body-detail text-left">Price-to-Sales(PS)<img title="The aggregate Price to Sales (PS) ratio for the portfolio. The PS ratio is a method of valuing the portfolio by valuing the companies held in the portfolio by their stock price to their revenues. Low PS ratios are considered undervalued, whereas high PS ratios are considered overvalued." class="float-right-class" src="images/question_mark.png"></td>
+                                <td class="cart-body-detail text-center">{{ jsonProduct.commonStats.aggregatePsRatio | number: 2 }}</td>
+                            </tr>
+                            <!-- <td colspan="2" class="cart-body-detail text-center">10 row(s) are in this table</td> -->
+                      </tbody>
+                    </table>
+                    <div class="text-center font-20px">Industry Group Allocation</div>
+                    <!-- <nvd3 options="options" data="data"></nvd3> -->
+<!--                     <div class="piechart-container">
+                        <nvd3
+                            data="data"
+                            options="options"
+                            callback="callbackFunction()">
+                        </nvd3> 
+                    </div> -->
+                    <!-- <div class="piechart-container" > -->
+                    <div class="google-chart-container">
+                        <div google-chart id="google-chart" chart="chart"  class="google-chart-class" agc-on-mouseover="mouseoverHandler(row, column)" agc-on-mouseout="mouseoutHandler(row,column)"> </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <!-- <div id="chart_div" style="width: 900px; height: 500px;"></div> -->
+
+            </div>
+
+            <div>
+                <a href="#/open-account-1"><button type="button" class="btn-purchase-cart-bottom btn-purchase-cart-clicker float-left">Click to Purchase This Cart</button></a>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 margin-top-30">
+                <div class="col-xs-12 col-sm-8 col-md-8">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 text-right copy-of-your-account-link-container">
+                    <a class="copy-of-your-account-link" href="#/open-account-question-2"><img src="images/back_new_img.png">&nbsp;Back</a>
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 copy-of-your-account-link-container">
+                    <a class="copy-of-your-account-link" href="#/"><img src="images/home_new_img.png">&nbsp;Home</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div ng-show="selectedProducts.length > 1" class="container cart-container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="get-started-1-title font-color-blue div-center">
+                    <b>Product Selections</b>
+                </div>
+                <div class="open-account-font">
+                    Here are products you have selected and in which you will be invested.
+                </div>
+                <div class=" float-right">
+                    <a href="#/open-account-1"><button type="button" class="margin-top-5 btn-purchase-multi btn-purchase-cart-clicker">Click to Purchase These Products</button></a>
+                    <div ng-if="investmentExperienced == 'GOOD' || investmentExperienced == 'EXTENSIVE'">
+                        <div class="text-center font-17px font-color-black">or</div>
+                        <div class="font-17px font-color-black width-292"><a href="#/investment-choices" class="font-17px font-color-blue "><u>Click here</u></a> to change product selections.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-3 padding-right-0 margin-top-minu35">
+                    <div class="font-27px border-bottom padding-bottom-20px">
+                        Product
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-9 padding-left-0 margin-top-minu35">
+                    <div class="font-27px border-bottom padding-bottom-20px">
+                        Details
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-3 border-right padding-right-5">
+                    <div ng-repeat="product in selectedProducts" class="text-center padding-10 cursor-pointer" ng-class="{'product-details-border': product.selectedFlag == 1}" ng-click="selectProduct(product.productName)">
+                        <div class="margin-top-5 benefit-title-font-color font-20px height-40">
+                            {{ product.description }}
+                        </div>
+                        <div class="margin-top-5">
+                            <a><img class="choice-image-cotainter" ng-src="images/carts/{{ product.imageName }}.png"/></a>
+                        </div>
+                        <div class="margin-top-5 benefit-title-font-color font-19px">
+                            Master Score
+                        </div>
+                        <div class="margin-top-10 choice-panel-btn font-22px">
+                            {{ product.customStats.compositeMasterScore }}
+                        </div>
+                        <div class="font-15px">
+                            {{ product.selectPercentage }}% of Your Total Assets Will Be Invested in This Product.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-9 padding-top-20">
+                    
+                    <div class="font-27px">
+                        {{productName}}
+                    </div>
+                    <div class="iq-stock-detail-font">
+                        {{productDetails}}
+                    </div>
+
+
+                    <div class="row margin-top-20" style="z-index: 100;">
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <table class="table">
+                                <thead class="table table-striped">
+                                    <tr class="cart-table-header">
+                                        <th class="cart-header-detail">Symbol</th>
+                                        <th class="cart-header-detail">Description</th>
+                                        <th class="cart-header-detail">Group</th>
+                                        <th class="cart-header-detail">Master Score<img title="The four-dimensional, FusionIQ stock score. 1 is the worst score – 100 best score." class="float-right-class" src="images/header_question_mark.png"></th>
+                                        <th class="cart-header-detail">Safety Score<img title="The stock safety score.  Scored high, moderate and low safety. A measure of volatility, beta and a company’s balance sheet safety." class="float-right-class" src="images/header_question_mark.png"></th>
+                                        <th class="cart-header-detail">%Weight</th>
+                                        <!-- <th class="cart-header-detail">Flag</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody class="cart-table-body">
+                                    <tr ng-repeat="holding in jsonTable.holdings">
+                                        <td ng-class="{'cart-unselected-body': holding.selectedFlag == false, 'cart-selected-body': holding.selectedFlag === true}">{{holding.symbol}}</td>
+                                        <td ng-class="{'cart-unselected-body': holding.selectedFlag == false, 'cart-selected-body': holding.selectedFlag === true}">{{holding.description}}</td>
+                                        <td ng-class="{'cart-unselected-body': holding.selectedFlag == false, 'cart-selected-body': holding.selectedFlag === true}">{{holding.group}}</td>
+                                        <td ng-class="{'cart-unselected-body': holding.selectedFlag == false, 'cart-selected-body': holding.selectedFlag === true}" class="text-center">{{holding.customStats.masterScore}}</td>
+                                        <td ng-class="{'cart-unselected-body': holding.selectedFlag == false, 'cart-selected-body': holding.selectedFlag === true}" class="text-center">{{holding.customStats.safetyScore}}</td>
+                                        <td ng-class="{'cart-unselected-body': holding.selectedFlag == false, 'cart-selected-body': holding.selectedFlag === true}">{{holding.percentWeight * 100 | number:1}}%</td>
+                                        <!-- <td class="cart-body-detail">{{holding.selectedFlag}}</td> -->
+
+                                    </tr>
+                                    <!-- <tr>
+                                        <td colspan="6" class="cart-body-detail text-center">{{ jsonTable.holdings.length }} row(s) are in this table</td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <table class="table">
+                                <thead class="table table-striped">
+                                    <tr class="cart-table-header">
+                                        <th class="cart-header-detail text-left">Stat</th>
+                                        <th class="cart-header-detail text-center">Value</th>
+                                    </tr>
+                                </thead>
+                              <tbody class="cart-table-body">
+                                    <tr>
+                                        <td class="cart-body-detail text-left">Holdings<img title="The number of equities held in your portfolio." class="float-right-class" src="images/question_mark.png"></td>
+                                        <td class="cart-body-detail text-center">{{ jsonProduct.commonStats.totalHoldings }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart-body-detail text-left">Composite Master Score<img title="The four-dimensional, FusionIQ portfolio score. 1 is the worst score – 100 best score." class="float-right-class" src="images/question_mark.png"></td>
+                                        <td class="cart-body-detail text-center">{{ jsonProduct.customStats.compositeMasterScore }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart-body-detail text-left">Composite Safety Score<img title="The portfolio safety score.  Scored high, moderate and low safety. A measure of volatility, beta and a company’s balance sheet safety." class="float-right-class" src="images/question_mark.png"></td>
+                                        <td class="cart-body-detail text-center">{{ jsonProduct.customStats.compositeSafetyScore }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart-body-detail text-left">Market Cap<img title="The market value of all shares outstanding in a company." class="float-right-class" src="images/question_mark.png"></td>
+                                        <td class="cart-body-detail text-center">USD ${{ jsonProduct.commonStats.aggregateMarketCap / 1000000000| number: 1}}B</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart-body-detail text-left">Beta<img title="is a measure of the volatility, or systematic risk, of a security or a portfolio in comparison to the market as a whole." class="float-right-class" src="images/question_mark.png"></td>
+                                        <td class="cart-body-detail text-center">{{ jsonProduct.commonStats.aggregateBeta }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart-body-detail text-left">Dividend Yield<img title="A measure of how much the portfolio pays out in dividends each year, represented as a percentage." class="float-right-class" src="images/question_mark.png"></td>
+                                        <td class="cart-body-detail text-center">{{ jsonProduct.commonStats.aggregateDividend | number: 2 }}%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart-body-detail text-left">30-Day Return<img title="The portfolios return over the trailing 30 days." class="float-right-class" src="images/question_mark.png"></td>
+                                        <td class="cart-body-detail text-center">1.69%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart-body-detail text-left">Price-to-Earnings(PE)<img title="The aggregate Price to Earnings (PE) ratio for the portfolio.  The PE ratio is a method of valuing the portfolio by valuing the companies held in the portfolio by their current share price relative to their per share earnings. Low PE ratios are considered undervalued, whereas high PE ratios are considered overvalued." class="float-right-class" src="images/question_mark.png"></td>
+                                        <td class="cart-body-detail text-center">{{ jsonProduct.commonStats.aggregatePeRatio | number: 2 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart-body-detail text-left">Price-to-Book(PB)<img title="The aggregate Price to Book (PB) ratio for the portfolio. The PB ratio is a method for valuing the portfolio by valuing the companies held in the portfolio by comparing its market value to its book value. Low PB ratios are considered undervalued, whereas high PB ratios are considered overvalued." class="float-right-class" src="images/question_mark.png"></td>
+                                        <td class="cart-body-detail text-center">{{ jsonProduct.commonStats.aggregatePbRatio | number: 2 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart-body-detail text-left">Price-to-Sales(PS)<img title="The aggregate Price to Sales (PS) ratio for the portfolio. The PS ratio is a method of valuing the portfolio by valuing the companies held in the portfolio by their stock price to their revenues. Low PS ratios are considered undervalued, whereas high PS ratios are considered overvalued." class="float-right-class" src="images/question_mark.png"></td>
+                                        <td class="cart-body-detail text-center">{{ jsonProduct.commonStats.aggregatePsRatio | number: 2 }}</td>
+                                    </tr>
+                                    <!-- <td colspan="2" class="cart-body-detail text-center">10 row(s) are in this table</td> -->
+                              </tbody>
+                            </table>
+                            <div class="text-center font-20px">Industry Group Allocation</div>
+                            <!-- <nvd3 options="options" data="data"></nvd3> -->
+        <!--                     <div class="piechart-container">
+                                <nvd3
+                                    data="data"
+                                    options="options"
+                                    callback="callbackFunction()">
+                                </nvd3> 
+                            </div> -->
+                            <!-- <div class="piechart-container" > -->
+                            <div class="google-chart-container">
+                                <div google-chart id="google-chart" chart="chart"  class="google-chart-class" agc-on-mouseover="mouseoverHandler(row, column)" agc-on-mouseout="mouseoutHandler(row,column)"> </div>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <!-- <div id="chart_div" style="width: 900px; height: 500px;"></div> -->
+
+                    </div>
+
+                    <div>
+                        <a href="#/open-account-1"><button type="button" class="btn-purchase-multi-bottom btn-purchase-cart-clicker float-left">Click to Purchase These Products</button></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 margin-top-30">
+                        <div class="col-xs-12 col-sm-8 col-md-8">
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 text-right copy-of-your-account-link-container">
+                            <a class="copy-of-your-account-link" href="#/open-account-question-2"><img src="images/back_new_img.png">&nbsp;Back</a>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 copy-of-your-account-link-container">
+                            <a class="copy-of-your-account-link" href="#/"><img src="images/home_new_img.png">&nbsp;Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+            
+        </div>
+    </div>
+</section>
+<!-- 
+<section id="more-details" class="fadeInDown">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-7 col-md-8">
+                <div class="more-news-header">
+                    <h3>Want more details? Contact us</h3>
+                </div>
+                <div class="more-news-details">
+                    <div>We would love to assist you. Contact us by phone, email or via our social media channels.</div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-5 col-md-4 contact-us-div">
+                <div class="btn-contact-us-section">
+                    <a href="#/contact" class="open-account-btn-contact-us btn-contact-us-clicker">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->

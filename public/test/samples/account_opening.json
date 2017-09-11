@@ -1,0 +1,83 @@
+{
+  "federalTaxBracketPercent": 8,
+  "annualIncomeUSD": "min,max",
+  "totalNetWorthUSD": "min,max",
+  "liquidNetWorthUSD": "min,max",
+  "riskTolerance": "MEDIUM",
+  "investmentExperience": "GOOD",
+  "investmentObjective": "GROWTH",
+  "liquidityNeeds": "SOMEWHAT_IMPORTANT",
+  "timeHorizon": "AVERAGE",
+  "customerType": "INDIVIDUAL",
+  "jointCustomerDisposition": "COMMUNITY_PROPERTY",
+  "communityPropertyState": "MA",
+  "jointTenantsInCommonParticipants": [
+    {
+      "estatePercent": 60,
+      "name": "Person1"
+    },
+    {
+      "estatePercent": 40,
+      "name": "Person2"
+    }
+  ],
+  "applicants": [
+    {
+      "maritalStatus": "MARRIED",
+      "numDependents": 3,
+      "givenName": "0Testing0",
+      "familyName": "0Person1A0",
+      "dateOfBirth": "1990-01-01",
+      "citizenshipCountry": "USA",
+      "socialSecurityNumber": "666-00-0001",
+      "homeAddress": {
+        "postalCode": "02481",
+        "country": "USA",
+        "streetAddress": [
+          "40 Walnut St"
+        ],
+        "city": "Wellesley",
+        "state": "MA"
+      },
+      "phoneNumbers": [
+        {
+          "phoneNumberType": "WORK",
+          "phoneNumber": "877-486-4702"
+        }
+      ],
+      "mailingAddress": {
+        "postalCode": "02481",
+        "country": "USA",
+        "streetAddress": [
+          "40 Walnut St"
+        ],
+        "city": "Wellesley",
+        "state": "MA"
+      },
+      "emailAddresses": [
+        "info1@escapitaladvisors.com"
+      ],
+      "isAffiliatedExchangeOrFINRA": "YES",
+      "firmName": "XYZ Advisors.",
+      "affiliatedApproval": [ "<upload-guid>" ],
+      "isControlPerson": "YES",
+      "companySymbols": [ "AAPL", "MSFT" ],
+      "isPoliticallyExposed": "YES",
+      "immediateFamily": [ "John Q. Testing", "Alice Testing" ],
+      "politicalOrganization": "Boston Chamber of Commerce",
+      "employmentStatus": "EMPLOYED",
+      "positionEmployed": "Associate",
+      "employer": "ES Capital Advisors",
+      "yearsEmployed": 20,
+      "businessAddress": {
+        "postalCode": "02481",
+        "country": "USA",
+        "streetAddress": [
+          "40 Walnut St"
+        ],
+        "city": "Wellesley",
+        "state": "MA"
+      }
+    }
+  ]
+}

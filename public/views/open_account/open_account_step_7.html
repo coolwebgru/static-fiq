@@ -1,0 +1,218 @@
+<section id="main-slider" class="no-margin fadeInDown">
+    <div class="open-account-full-width-container block-1">
+        <div class="open-account-full-width-background" style="background: url(images/open_account_img.png) no-repeat center center; background-size: 100% 100%;">
+        </div>
+        <div class="open-account-full-width-containter-content">
+            <div class="open-account-background-mask">
+                <div class="open-account-center-cn-div">
+                    <div class="open-account-background-title center-inner-div">
+                      <div class="container">
+                        <h4>OPEN YOUR ACCOUNT</h4>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container margin-top-10">
+        <div id="status-buttons" class="text-center">
+            <a id="question_1_status" class="active" ng-click="changeWorkspace(7, 0)" href=""><span>1</span></a>
+            <a id="question_2_status" class="active" ng-click="changeWorkspace(7, 1)" href=""><span>2</span></a>
+            <a id="question_3_status" class="active" ng-click="changeWorkspace(7, 2)" href=""><span>3</span></a>
+            <a id="question_4_status" class="active" ng-click="changeWorkspace(7, 3)" href=""><span>4</span></a>
+            <a id="question_5_status" class="active" ng-click="changeWorkspace(7, 4)" href=""><span>5</span></a>
+            <a id="question_6_status" class="active" ng-click="changeWorkspace(7, 5)" href=""><span>6</span></a>
+            <a id="question_7_status" class="active" ng-click="changeWorkspace(7, 6)" href=""><span>7</span></a>
+            <a id="question_8_status" class="active" ng-show="customerType == 'JOINT'" href=""><span>8</span></a>
+            <a id="question_9_status" ng-show="customerType == 'JOINT'" ng-click="changeWorkspace(7, 8)" href=""><span>9</span></a>
+            <a id="question_10_status" ng-show="customerType == 'JOINT'" ng-click="changeWorkspace(7, 9)" href=""><span>10</span></a>
+            <a id="question_11_status" ng-show="customerType == 'JOINT'" ng-click="changeWorkspace(7, 10)" href=""><span>11</span></a>
+        </div>
+    </div>
+</section><!--/#main-slider-->
+
+<section id="copy-of-your-account" class="">
+    <div class="container">
+        <div class="row fade">
+            <form name="AccountStep_7" class="col-xs-12 col-md-6 col-md-6 z-index-100" enctype="multipart/form-data">
+                <div class="iq-stock-detail-font">
+                    Providing us your financial background, helps us ensure we find the right portfolio for your specific needs.
+                </div>
+                <div class="contact-info-title font-18px font-bold">
+                    SECOND APPLICANT'S REGULATORY QUESTIONS
+                </div>
+                <div class="label-input-container">
+                    <label ng-show="AccountStep_7.$error.required && AccountStep_7.$dirty" class="required-style">All fields are required unless otherwise noted.</label>
+                </div>
+                <div class="label-input-container">
+                    <div class="label-container">
+                        <b>Securities Affiliations</b><br>
+                        Are you affiliated with or employed by a stock exchange or member firm of an exchange or FINRA, or a municipal securities broker-dealer?
+                    </div>
+                    <div class="radio-type">
+                        <input name="affiliatedFINRA" ng-model="secondApplicant.affiliatedFINRA" value="YES" type="radio" ng-required="!secondApplicant.affiliatedFINRA"/>&nbsp;&nbsp;Yes
+                    </div>
+                    <div class="radio-type">
+                        <input name="affiliatedFINRA" ng-model="secondApplicant.affiliatedFINRA" value="NO" type="radio" ng-required="!secondApplicant.affiliatedFINRA"/>&nbsp;&nbsp;No
+                    </div>
+                </div>
+                <div ng-if="secondApplicant.affiliatedFINRA == 'YES'">
+                    <div class="label-input-container">
+                        <div class="label-container">
+                            If Yes, please enter Firm Name
+                        </div>
+                        <div class="input-container">
+                            <input ng-model="secondApplicant.firmName" class="portfolio-input" name="inputSecondUserFirmName" required>
+                        </div>
+                    </div>
+                    <div class="label-input-container">
+                        <div class="label-container">
+                            407 Letter <img src="images/question_tag.png" class="padding-bottom-15">
+                        </div>
+                        <div class="input-container">
+                            <img src="images/open_doc.png" class="class-absolute" uploadfile>
+                            <input  ng-model='secondApplicant.Letter.name' class="portfolio-input padding-left-30" placeholder="Click icon to attach letter" name="inputFirstUser407">
+                            <input type="file" class="ng-hide" id="portfolio-upload" fileread="secondApplicant.Letter"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="label-input-container">
+                    <div class="label-container">
+                        <b>Publicly-Traded Control Person</b><br>
+                        Are you an officer, director, or owner of 10% or more of the voting shares of a publicly-traded company?
+                    </div>
+                    <div class="radio-type">
+                        <input name="isControlPerson" ng-model="secondApplicant.isControlPerson" value="YES" type="radio" ng-required="!secondApplicant.isControlPerson"/>&nbsp;&nbsp;Yes
+                    </div>
+                    <div class="radio-type">
+                        <input name="isControlPerson" ng-model="secondApplicant.isControlPerson" value="NO" type="radio" ng-required="!secondApplicant.isControlPerson"/>&nbsp;&nbsp;No
+                    </div>
+                </div>
+                <div ng-if="secondApplicant.isControlPerson == 'YES'">
+                    <div class="label-input-container">
+                        <div class="label-container">
+                            Trading Symbols
+                        </div>
+                        <div class="input-container">
+                            <textarea ng-model="secondApplicant.companySymbols" class="textarea-size" name="inputSecondUserTS" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="label-input-container">
+                    <div class="label-container">
+                        <b>Political Exposure</b><br>
+                        Do you, any of your immediate family, or any of your close associates hold a political office or serve in a trusted, prominent public function?
+                    </div>
+                    <div class="radio-type">
+                        <input name="isPoliticallyExposed" ng-model="secondApplicant.isPoliticallyExposed" value="YES" type="radio" ng-required="!secondApplicant.isPoliticallyExposed"/>&nbsp;&nbsp;Yes
+                    </div>
+                    <div class="radio-type">
+                        <input name="isPoliticallyExposed" ng-model="secondApplicant.isPoliticallyExposed" value="NO" type="radio" ng-required="!secondApplicant.isPoliticallyExposed"/>&nbsp;&nbsp;No
+                    </div>
+                </div>
+                <div ng-if="secondApplicant.isPoliticallyExposed == 'YES'">
+                   <div class="label-input-container">
+                        <div class="label-container">
+                            Organization Name
+                        </div>
+                        <div class="input-container">
+                            <input ng-model="secondApplicant.politicalOrganization" class="portfolio-input" name="inputSecondUserOrganizationName" required>
+                        </div>
+                    </div>
+                    <div class="label-input-container">
+                        <div class="label-container">
+                            Family Members
+                        </div>
+                        <div class="input-container">
+                            <textarea ng-model="secondApplicant.immediateFamily" class="textarea-size" name="inputSecondUserFM" required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="label-input-container">
+                    <div class="label-container">
+                        Enter your name as it appears here to agree to these terms:
+                    </div>
+                </div>
+                <div class="label-input-container">
+                    <div class="label-container">
+                        First Applicant's Name
+                    </div>
+                    <div class="input-container">
+                        <input ng-model="firstApplicant.checkName" class="open-account-input" required>
+                    </div>
+                </div>
+
+                <div class="label-input-container">
+                    <div class="label-container">
+                        Second Applicant's Name
+                    </div>
+                    <div class="input-container">
+                        <input ng-model="secondApplicant.checkName" class="open-account-input" required>
+                    </div>
+                </div> -->
+
+                <div class="button-container row">
+                    <div class="col-xs-12 col-md-6 col-md-6 margin-top-20">
+                        <a class="copy-of-your-account-link div-bottom" ng-click="changeWorkspace(7, 6)"><img src="images/back_new_img.png">&nbsp;Back</a>
+                    </div>
+                    <div class="col-xs-12 col-md-6 col-md-6 margin-top-20">
+                        <!-- <a class="btn-open-account-continue float-right-class" ng-show="!AccountStep_7.$error.required && firstApplicant.checkName == firstApplicant.firstName + ' ' + firstApplicant.lastName && secondApplicant.checkName == secondApplicant.firstName + ' ' + secondApplicant.lastName"  ng-click="changeWorkspace(7, 8)">Agree and Continue</a> -->
+                        
+                        <a ng-show="!AccountStep_7.$error.required" class="copy-of-your-account-link float-right-class" ng-click="changeWorkspace(7, 8)"><img src="images/next_new_img.png"> Next</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 margin-top-20">
+                        <a class="btn-finish-later float-right-class" ng-click="finishLater(7)">I will finish later</a>
+                    </div>
+                </div>
+            </form>
+            <div class="col-xs-12 col-md-5 col-md-5 float-right">
+                <div class="panel panel-container">
+                    <div class="panel-heading lock-panel-header row">
+                        <div class="col-xs-12 col-md-2 col-md-2 div-center lock-image-container">
+                            <img src="images/panel_lock_dark.png">
+                        </div>
+                        <div class="col-xs-12 col-md-10 col-md-10">
+                            <div class="panel-title pull-center">
+                                We safeguard your information and account with Bank Level Security
+                            </div>
+                        </div>    
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-body">
+                        We use the most state of the art security measures to protect your information and account.
+                        <div class="see-privacy-policy panel-text-underline">
+                            Learn More
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <a href="#/contact">Questions?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <section id="more-details" class="fadeInDown">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-7 col-md-8">
+                <div class="more-news-header">
+                    <h3>Want more details? Contact us</h3>
+                </div>
+                <div class="more-news-details">
+                    <div>We would love to assist you. Contact us by phone, email or via our social media channels.</div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-5 col-md-4 contact-us-div">
+                <div class="btn-contact-us-section">
+                    <a href="#/contact" class="open-account-btn-contact-us btn-contact-us-clicker">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+            

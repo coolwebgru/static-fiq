@@ -1,0 +1,73 @@
+<section id="copy-of-your-account" class="fadeInDown" ng-show="questionspaces[2]['active']">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="get-started-1-title">
+                    Let's personalize your investment!
+                </div>
+                <div class="get-started-question-container">
+                    <div class="open-account-question-5-question-title">
+                        Question 8
+                    </div>
+                    <div class="open-account-question">
+                        Beta is a measure of a stock's volatility in comparison the the S&P 500. Stocks with a high beta tend to move up (or down) in greater magnitude than the S&P 500, whereas stocks with lower betas tend to move up (or down) less than the S&P 500.
+                    </div>
+                    <div class="option-account-question-item">
+                        <input ng-model="accountHigherBeta" value="YES" type="radio" />&nbsp;&nbsp;I prefer higher beta companies.
+                    </div>
+                    <div class="option-account-question-item">
+                        <input ng-model="accountHigherBeta" value="NO" type="radio" />&nbsp;&nbsp;I prefer lower beta companies
+                    </div>
+                </div>
+
+                <div class="get-started-question-container">
+                    <div class="open-account-question-5-question-title">
+                        Question 9
+                    </div>
+                    <div class="open-account-question">
+                        I prefer ...
+                    </div>
+                    <div class="option-account-question-item">
+                        <input ng-model="accountCapCompany" value="LARGE" type="radio" name="question9">&nbsp;&nbsp;Large Cap companies
+                    </div>    
+                    <div class="option-account-question-item">
+                        <input ng-model="accountCapCompany" value="MID" type="radio" name="question9">&nbsp;&nbsp;Mid Cap companies
+                    </div> 
+                    <div class="option-account-question-item">
+                        <input ng-model="accountCapCompany" value="SMALL" type="radio" name="question9">&nbsp;&nbsp;Small Cap companies
+                    </div> 
+                </div>
+
+                <div class="get-started-question-container">
+                    <div class="open-account-question-5-question-title">
+                        Question 10
+                    </div>
+                    <div class="open-account-question">
+                        I prefer a portfolio of ...
+                    </div>
+                    <div class="option-account-question-item">
+                        <input ng-model="accountStock" value="VALUE" type="radio" />&nbsp;&nbsp;Value stocks
+                    </div>    
+                    <div class="option-account-question-item font-bold">
+                        <input ng-model="accountStock" value="GROWTH" type="radio" />&nbsp;&nbsp;Growth Stocks
+                    </div> 
+                    <div class="option-account-question-item">
+                        <input ng-model="accountStock" value="NO" type="radio" />&nbsp;&nbsp;I have no preference, as long as the portfolio meets my risk tolerance
+                    </div> 
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-12 col-sm-8 col-md-8">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 text-right copy-of-your-account-link-container">
+                    <a class="copy-of-your-account-link" ng-click="activeQuestionspace(1)"><img src="images/back_new_img.png">&nbsp;Back</a>
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 copy-of-your-account-link-container">
+                    <a class="copy-of-your-account-link" href="#/open-account-cart"><img src="images/next_new_img.png">&nbsp;Next</a>
+                    <!-- <a class="copy-of-your-account-link" ng-click="submitQuestions()"><img src="images/next_new_img.png">&nbsp;Next</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

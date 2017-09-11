@@ -1,0 +1,81 @@
+<div class="modal fade">
+  	<div class="modal-dialog">
+	    <div class="modal-content">
+	      	<div class="modal-header">
+		        <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title">Transfer Details</h4>
+	      	</div>
+	      	<div class="modal-body">
+	        	<div class="row">
+	        		<div class="col-xs-12 col-sm-5 col-md-5">
+	        			Mechanism:
+	        		</div>
+	        		<div class="col-xs-12 col-sm-7 col-md-7">
+	        			{{ content.mechanism }}
+	        		</div>
+	        	</div>
+	        	<div class="row">
+	        		<div class="col-xs-12 col-sm-5 col-md-5">
+	        			Request Amount:
+	        		</div>
+	        		<div class="col-xs-12 col-sm-7 col-md-7">
+	        			{{ content.requestedAmount | currency }}
+	        		</div>
+	        	</div>
+	        	<div class="row">
+	        		<div class="col-xs-12 col-sm-5 col-md-5">
+	        			Amount:
+	        		</div>
+	        		<div class="col-xs-12 col-sm-7 col-md-7">
+	        			{{ content.amount | currency }}
+	        		</div>
+	        	</div>
+	        	<div class="row">
+	        		<div class="col-xs-12 col-sm-5 col-md-5">
+	        			Direction:
+	        		</div>
+	        		<div class="col-xs-12 col-sm-7 col-md-7">
+	        			{{ content.direction }}
+	        		</div>
+	        	</div>
+	        	<div class="row" ng-if="content.direction == 'OUTGOING'">
+	        		<div class="col-xs-12 col-sm-5 col-md-5">
+	        			Full Balance?
+	        		</div>
+	        		<div class="col-xs-12 col-sm-7 col-md-7">
+	        			{{ content.isFullBalance?'Yes':'No' }}
+	        		</div>
+	        	</div>
+
+	        	<div class="row">
+	        		<div class="col-xs-12 col-sm-5 col-md-5">
+	        			Status:
+	        		</div>
+	        		<div class="col-xs-12 col-sm-7 col-md-7">
+	        			{{ content.status }}
+	        		</div>
+	        	</div>
+	        	<div class="row">
+	        		<div class="col-xs-12 col-sm-5 col-md-5">
+	        			Created Date:
+	        		</div>
+	        		<div class="col-xs-12 col-sm-7 col-md-7">
+	        			{{ content.createdAt | date:'yyyy-MM-dd' }}
+	        		</div>
+	        	</div>
+	        	<div class="row">
+	        		<div class="col-xs-12 col-sm-5 col-md-5">
+	        			Updated Date:
+	        		</div>
+	        		<div class="col-xs-12 col-sm-7 col-md-7">
+	        			{{ content.updatedAt | date:'yyyy-MM-dd' }}
+	        		</div>
+	        	</div>
+	      	</div>
+	      	<div class="modal-footer">
+				<a type="button" class="btn-ach-confirm" data-dismiss='modal'>OK</a>
+		        <!-- <button type="button" class="btn btn-success" data-dismiss="modal">OK</button> -->
+	      	</div>
+	    </div>
+  	</div>
+</div>

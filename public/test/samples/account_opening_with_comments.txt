@@ -1,0 +1,116 @@
+{
+  "federalTaxBracketPercent": 8,        <<<<<<<<  DECIMAL
+  "annualIncomeUSD": "min,max",        <<<<<<<<  select_data value
+  "totalNetWorthUSD": "min,max",        <<<<<<<<  select_data value (shared "net worth" values)
+  "liquidNetWorthUSD": "min,max",        <<<<<<<<  select_data value (shared "net worth" values)
+  "riskTolerance": "MEDIUM",        <<<<<<<<  select_data value
+  "investmentExperience": "GOOD",        <<<<<<<<  select_data value
+  "investmentObjective": "GROWTH",        <<<<<<<<  select_data value
+  "liquidityNeeds": "SOMEWHAT_IMPORTANT",        <<<<<<<<  select_data value
+  "timeHorizon": "AVERAGE",        <<<<<<<<  select_data value
+
+  "customerType": "INDIVIDUAL",        <<<<<<<<  select_data value
+
+>>>> only required if customerType is JOINT
+  "jointCustomerDisposition": "COMMUNITY_PROPERTY",        <<<<<<<<  select_data value
+<<<<
+
+>>>> only required if jointCustomerDisposition is COMMUNITY_PROPERTY
+  "communityPropertyState": "MA",        <<<<<<<<  select_data value
+<<<<
+
+>>>> only required if jointCustomerDisposition is TENANTS_IN_COMMON
+  "jointTenantsInCommonParticipants": [
+    {
+      "estatePercent": 60,        <<<<<<<<  DECIMAL
+      "name": "Person1"
+    },
+    {
+      "estatePercent": 40,        <<<<<<<<  DECIMAL
+      "name": "Person2"
+    }
+  ],
+<<<<
+
+  "applicants": [        <<<<<<<<  One or two, depending on INDIVIDUAL or JOINT (note that both applicants have all of the questions required).
+    {
+>>>> Optional
+      "maritalStatus": "MARRIED",        <<<<<<<<  select_data value
+      "numDependents": 3,        <<<<<<<<  INTEGER
+<<<<
+      "givenName": "0Testing0",
+      "familyName": "0Person1A0",
+      "dateOfBirth": "1990-01-01",
+      "citizenshipCountry": "USA",        <<<<<<<<  select_data value
+      "socialSecurityNumber": "666-00-0001",
+      "homeAddress": {
+        "postalCode": "02481",
+        "country": "USA",        <<<<<<<<  select_data value
+        "streetAddress": [
+          "40 Walnut St"
+        ],
+        "city": "Wellesley",
+        "state": "MA"        <<<<<<<<  select_data value
+      },
+      "phoneNumbers": [        <<<<<<<<  one is required
+        {
+          "phoneNumberType": "WORK",
+          "phoneNumber": "877-486-4702"
+        }
+      ],
+>>>> Optional, can be checkbox "same as homeAddress" (if checked on form, just omit mailingAddress)
+      "mailingAddress": {
+        "postalCode": "02481",
+        "country": "USA",        <<<<<<<<  select_data value
+        "streetAddress": [
+          "40 Walnut St"
+        ],
+        "city": "Wellesley",
+        "state": "MA"        <<<<<<<<  select_data value
+      },
+<<<<
+      "emailAddresses": [
+        "info1@escapitaladvisors.com"
+      ],
+
+      "isAffiliatedExchangeOrFINRA": "YES",        <<<<<<<<  checkbox transmitted as YES or NO
+
+>>>> only required if isAffiliatedExchangeOrFINRA is YES
+      "firmName": "XYZ Advisors.",
+      "affiliatedApproval": [ "<upload-guid>" ],        <<<<<<<<  upload PDF separately, get back GUID, put here.
+<<<<
+
+      "isControlPerson": "YES",        <<<<<<<<  checkbox transmitted as YES or NO
+
+>>>> only required if isControlPerson is YES
+      "companySymbols": [ "AAPL", "MSFT" ],
+<<<<
+
+      "isPoliticallyExposed": "YES",        <<<<<<<<  checkbox transmitted as YES or NO
+
+>>>> only required if isPoliticallyExposed is YES
+      "immediateFamily": [ "John Q. Testing", "Alice Testing" ],
+      "politicalOrganization": "Boston Chamber of Commerce",
+<<<<
+
+      "employmentStatus": "EMPLOYED",        <<<<<<<<  select_data value
+>>>> only required if employmentStatus is EMPLOYED.
+      "positionEmployed": "Associate",
+      "employer": "ES Capital Advisors",
+<<<<
+
+>>>> only shown if employmentStatus is EMPLOYED, but are optional.
+      "yearsEmployed": 20,        <<<<<<<<  INTEGER
+      "businessAddress": {
+        "postalCode": "02481",
+        "country": "USA",        <<<<<<<<  select_data value
+        "streetAddress": [
+          "40 Walnut St"
+        ],
+        "city": "Wellesley",
+        "state": "MA"        <<<<<<<<  select_data value
+<<<<
+      }
+    }
+  ]
+}
